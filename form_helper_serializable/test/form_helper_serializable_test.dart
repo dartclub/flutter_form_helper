@@ -1,16 +1,14 @@
-import 'package:form_helper_serializable/form_helper_serializable.dart';
+import 'package:form_helper/form_helper.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    Awesome awesome;
 
     setUp(() {
-      awesome = Awesome();
     });
 
     test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+      expect(true, isTrue);
     });
   });
 }

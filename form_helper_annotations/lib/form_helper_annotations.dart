@@ -1,8 +1,29 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/* form_helper for flutter annotations */
 library form_helper_annotations;
 
-export 'src/form_helper_annotations_base.dart';
+import 'package:flutter/material.dart';
 
-// TODO: Export any libraries intended for clients of this package.
+class FormHelper {
+  final GlobalKey<FormState> formKey;
+
+  FormHelper(this.formKey);
+}
+
+class FormAttribute {
+  final ValueChanged<String> onChanged;
+  final GestureTapCallback onTap;
+  final VoidCallback onEditingComplete;
+  final ValueChanged<String> onFieldSubmitted;
+  final FormFieldSetter<String> onSaved;
+  final FormFieldValidator<String> validator;
+  final dynamic initialValue;
+  FormAttribute(
+    this.validator,
+    this.onSaved,
+    this.onChanged,
+    this.onTap,
+    this.onEditingComplete,
+    this.onFieldSubmitted,
+    this.initialValue,
+  );
+}

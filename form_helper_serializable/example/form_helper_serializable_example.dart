@@ -1,6 +1,5 @@
-import 'package:form_helper_serializable/form_helper_serializable.dart';
+import 'package:form_helper/form_helper.dart';
 
 void main() {
-  var awesome = Awesome();
-  print('awesome: ${awesome.isAwesome}');
+
 }
