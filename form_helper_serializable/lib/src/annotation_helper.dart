@@ -6,7 +6,7 @@ import 'package:firestore_serializable/src/utils.dart' as utils;
 import 'package:form_helper_annotations/form_helper_annotations.dart';
 
 class FieldAnnotationHelper {
-  FirestoreAttribute attribute = FirestoreAttribute();
+  FormAttribute formAttribute = FormAttribute();
   bool hasFirestoreAttribute;
 
   FieldAnnotationHelper(FieldElement _el) {
@@ -17,7 +17,7 @@ class FieldAnnotationHelper {
     hasFirestoreAttribute = firestoreAttributeAnnotation != null;
     if (hasFirestoreAttribute) {
       DartObject obj = firestoreAttributeAnnotation.computeConstantValue();
-      attribute = FirestoreAttribute(
+      attribute = FormAttribute(
         ignore: obj.getField('ignore').toBoolValue(),
         nullable: obj.getField('nullable').toBoolValue(),
         alias: obj.getField('alias').toStringValue(),
@@ -31,11 +31,7 @@ class FieldAnnotationHelper {
     }
   }
 
-  get ignore => attribute.ignore;
-  get nullable => attribute.nullable;
-  get alias => attribute.alias;
-  get defaultValue => attribute.defaultValue;
-  get flutterValidatorMessage => attribute.flutterValidatorMessage;
+  //get ignore => attribute.ignore;
 }
 
 class ClassAnnotationHelper {
@@ -52,7 +48,7 @@ class ClassAnnotationHelper {
       DartObject obj = firestoreDocumentAnnotation.computeConstantValue();
 
       firestoreDocument = FormHelper(
-        formKey: obj.getField("formKey"),
+        formKey: obj.getField("formKey").toSymbolValue(),
         //hasSelfRef: obj.getField("hasSelfRef").toBoolValue(),
       );
     }
