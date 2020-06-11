@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      firestore_serializable:
+        enabled: true
+        generate_for:
+        - test/*
+        - test/generator/*
+builders:
+  firestore_serializable:
+    target: ":form_helper"
+    import: "package:form_helper/form_helper.dart"
+    builder_factories: ["formHelper"]
+    build_extensions: {".dart": [".form_helper.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]

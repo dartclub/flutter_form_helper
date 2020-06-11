@@ -1,6 +1,6 @@
 name: form_helper_annotations
 description: Flutter plugin to help you validate forms.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/dartclub/form_helper
 
 environment:
